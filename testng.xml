@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Regression Suite" parallel="classes" thread-count="4">
+    <test verbose="2" preserve-order="true" name="Regression Test">
+        <classes>
+            <class name="aero.sita.iborders.tests.ApiTest"/>
+            <class name="aero.sita.iborders.tests.BasicsTest"/>
+            <class name="aero.sita.iborders.tests.FrameworkBuildDataDrivenTest"/>
+            <class name="aero.sita.iborders.tests.FrameworkBuildTest"/>
+            <class name="aero.sita.iborders.tests.MockWebTest"/>
+            <class name="aero.sita.iborders.tests.MoreUiValidationTest"/>
+            <class name="aero.sita.iborders.tests.UiValidationContinuedTest"/>
+        </classes>
+    </test>
+</suite>
