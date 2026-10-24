@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 
 public class TestBase {
@@ -36,6 +37,8 @@ public class TestBase {
         //mvn test -PRegression -Dbrowser=firefox
         browserName = System.getProperty("browser")!=null ?System.getProperty("browser") : properties.getProperty("browser");
         envName = System.getProperty("env")!=null ?System.getProperty("env") : properties.getProperty("env");
+        browserName = browserName.trim().toLowerCase();
+        envName = envName.trim().toLowerCase();
         if (browserName.equals("chrome")) {
             browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("firefox")) {
