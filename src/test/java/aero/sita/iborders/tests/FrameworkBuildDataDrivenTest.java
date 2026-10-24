@@ -18,7 +18,7 @@ public class FrameworkBuildDataDrivenTest extends TestBase{
     String phoneNumber = "8073040700";
     static String bookingReferenceNumber = "";
 
-    @Test(dataProvider = "eventBookingData", dataProviderClass = DataProviderUtil.class, description = "Create Event -Book that event and verify if it is booked")
+    @Test(groups = "Framework", dataProvider = "eventBookingData", dataProviderClass = DataProviderUtil.class, description = "Create Event -Book that event and verify if it is booked")
     public void demoTest(HashMap<String, String> data) {
 
         LoginPage loginPage = new LoginPage(page, url, username, password);

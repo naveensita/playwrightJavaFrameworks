@@ -4,6 +4,28 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment to run tests against'
+        required: true
+        type: choice
+        default: 'qa'
+        options:
+          - dev
+          - qa
+          - staging
+          - prod
+      browser:
+        description: 'Select browser to run tests'
+        required: true
+        type: choice
+        default: 'chromium'
+        options:
+          - chromium
+          - firefox
+          - safari
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,4 +40,4 @@ jobs:
       - name: Ensure browsers are installed
         run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
       - name: Run tests
-        run: mvn test
+        run: mvn test -PFramework -Dbrowser={{github.event.inputs.browser}} -Denv={{github.event.inputs.environment}}

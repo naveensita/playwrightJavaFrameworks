@@ -16,7 +16,7 @@ public class FrameworkBuildTest extends TestBase{
     String phoneNumber = "8073040700";
     static String bookingReferenceNumber = "";
 
-    @Test(description = "Create Event -Book that event and verify if it is booked")
+    @Test(groups = "Framework", description = "Create Event -Book that event and verify if it is booked")
     public void demoTest() {
 
         LoginPage loginPage = new LoginPage(page, url, username, password);
