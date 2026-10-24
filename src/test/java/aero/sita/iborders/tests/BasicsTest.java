@@ -40,11 +40,11 @@ public class BasicsTest {
         browserName = System.getProperty("browser")!=null ?System.getProperty("browser") : properties.getProperty("browser");
         envName = System.getProperty("env")!=null ?System.getProperty("env") : properties.getProperty("env");
         if (browserName.equals("chrome")) {
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("firefox")) {
-            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("safari")) {
-            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(true));
         }
         //browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         page = browser.newPage();

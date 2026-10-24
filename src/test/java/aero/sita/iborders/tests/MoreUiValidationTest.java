@@ -30,11 +30,11 @@ public class MoreUiValidationTest {
         properties = TestBase.readProperties();
         browserName = System.getProperty("browser")!=null ?System.getProperty("browser") : properties.getProperty("browser");
         if (browserName.equals("chrome")) {
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("firefox")) {
-            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("safari")) {
-            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(true));
         }
         //browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         context = browser.newContext();
