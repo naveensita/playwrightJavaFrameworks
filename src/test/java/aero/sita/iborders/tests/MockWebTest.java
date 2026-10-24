@@ -31,11 +31,11 @@ public class MockWebTest {
         envName = System.getProperty("env")!=null ?System.getProperty("env") : properties.getProperty("env");
         url = properties.getProperty(envName + ".base_url");
         if (browserName.equals("chrome")) {
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("firefox")) {
-            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
         } else if (browserName.equals("safari")) {
-            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(true));
         }
         //browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         context = browser.newContext();
